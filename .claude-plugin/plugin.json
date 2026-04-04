@@ -1,0 +1,12 @@
+{
+  "name": "nectarblocks",
+  "version": "1.0.0",
+  "description": "Scaffold, audit and manage custom ACF Gutenberg blocks for WordPress.",
+  "author": {
+    "name": "perxel",
+    "url": "https://github.com/perxel"
+  },
+  "homepage": "https://github.com/perxel/nectarblocks",
+  "repository": "https://github.com/perxel/nectarblocks",
+  "license": "MIT"
+}
