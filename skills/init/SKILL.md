@@ -129,12 +129,20 @@ See the full guide: `/nectarblocks:guide`
 
 ### 5. If Tailwind selected
 
-Add to `themes/{slug}/`:
+Run these commands to copy build scripts from the plugin templates:
+
+```bash
+mkdir -p themes/{slug}/scripts themes/{slug}/assets/css
+cp $(claude plugin path nectarblocks)/templates/tailwind.js themes/{slug}/scripts/tailwind.js
+cp $(claude plugin path nectarblocks)/templates/create-block.js themes/{slug}/scripts/create-block.js
+```
+
+Then create:
 - `assets/css/index.css` — Tailwind v4 entry with `@import "tailwindcss"`
-- `scripts/tailwind.js` — Tailwind CLI wrapper (copy from nectarblocks docs/templates)
-- `.env.local.example` — with `TAILWIND_USER=yourlogin`
+- `.env.local.example` — with content: `TAILWIND_USER=yourlogin`
 - Add to `.gitignore`: `.env.local` and `assets/css/style.*.generated.css`
-- Remind the user to add `tailwind-theme-loader.php` to `mu-plugins/`
+
+Remind the user to copy `tailwind-theme-loader.php` into `mu-plugins/`.
 
 ### 6. If TypeScript selected
 

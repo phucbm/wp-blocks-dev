@@ -6,9 +6,47 @@ A Claude Code plugin for building **custom** WordPress blocks alongside [NectarB
 
 ## Install
 
+**From marketplace:**
 ```bash
 claude plugin install nectarblocks@perxel --scope project
 ```
+
+**Local install (for testing or offline use):**
+
+1. Clone the repo
+```bash
+git clone https://github.com/perxel/nectarblocks.git
+```
+
+2. Get the absolute path
+```bash
+cd nectarblocks && pwd
+```
+
+3. Register the local folder as a marketplace (run once)
+```bash
+/plugin marketplace add /Users/bmp/PHUC-LOCAL/perxel/nectarblocks
+```
+
+4. Install from it
+```bash
+/plugin install nectarblocks@nectarblocks --scope project
+```
+
+## Update
+
+**From marketplace:**
+```bash
+claude plugin update nectarblocks@perxel
+```
+
+**Local install** — pull the latest and reinstall:
+```bash
+cd /your/path/to/nectarblocks && git pull
+claude plugin install /your/path/to/nectarblocks --scope project
+```
+
+> Plugin updates are not automatic. Always bump the `version` in `.claude-plugin/plugin.json` when publishing changes — Claude Code uses the version number to detect updates.
 
 ## Commands
 
