@@ -1,39 +1,54 @@
 # Perxel Blocks
+![perxel-blocks-claude-plugin](https://github.com/user-attachments/assets/76762c04-780d-4ab4-9c82-5f91cbe94225)
 
 A **[Claude Code](https://claude.ai/code) plugin** for scaffolding, auditing, and managing custom **ACF Gutenberg blocks
 ** for WordPress — with Tailwind CSS integration and a structured, production-ready workflow. Tested
 with [NectarBlocks](https://nectarblocks.com).
 
+
 ## Example use cases
 
 **Example 1: Starting a new WordPress project**
+
 Run `/perxel-blocks:init my-client-site` — the plugin asks for project name, theme slug, author, and which optional
 features (Tailwind, TypeScript) to include, then scaffolds the full theme structure.
 
 **Example 2: Adding a new block**
+
 Run `/perxel-blocks:create-block hero-banner` — generates `block.json`, `render.php`, `fields.json`, and registers the
 block in `blocks.json` automatically.
 
 **Example 3: Auditing before a handoff**
+
 Run `/perxel-blocks:audit-blocks` — instantly checks all blocks for missing files, invalid timestamps, unregistered
 folders, and render issues. No AI, runs in seconds.
 
+<img width="1173" height="340" alt="audit-blocks" src="https://github.com/user-attachments/assets/1802a04f-293b-4720-892c-6f3d55c0791a" />
+
 **Example 4: Deep content review**
+
 Run `/perxel-blocks:audit-blocks-deep` — AI reviews block labels, field quality, admin render justification, and content
 consistency across the project.
 
+<img width="1309" height="882" alt="audit-blocks-deep" src="https://github.com/user-attachments/assets/18ed1a36-f88b-4c93-a120-6fb80467e68e" />
+
+
 **Example 5: Asking the agent**
+
 Talk to the `perxel-blocks-dev` agent when you're unsure about block structure, ACF field setup, PHP patterns, or
 Tailwind config — no need to provide context, it knows the workflow.
 
 ## Install
 
 **From GitHub (recommended):**
-```bash
-# Add the marketplace once
-claude plugin marketplace add perxel/perxel-blocks
 
-# Install the plugin
+1. Add the marketplace once
+```bash
+claude plugin marketplace add perxel/perxel-blocks
+```
+
+2. Install the plugin
+```bash
 claude plugin install perxel-blocks@perxel --scope project
 ```
 
