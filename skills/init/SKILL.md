@@ -123,8 +123,7 @@ See the full guide: `/nectarblocks:guide`
 
 ## Commands
 - `/nectarblocks:create-block <name>` — scaffold a new block
-- `/nectarblocks:audit` — audit all blocks against conventions
-- `/nectarblocks:enqueue <handle>` — add a new JS or CSS asset
+- `/nectarblocks:audit-blocks` — audit all blocks against conventions
 ```
 
 ### 5. If Tailwind selected

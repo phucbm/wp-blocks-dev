@@ -54,8 +54,8 @@ claude plugin install /your/path/to/nectarblocks --scope project
 |---|---|
 | `/nectarblocks:init <project-name>` | Scaffold a new WordPress theme with full nectarblocks setup |
 | `/nectarblocks:create-block <name>` | Create a new ACF block with all required files |
-| `/nectarblocks:audit` | Audit all blocks against conventions |
-| `/nectarblocks:enqueue <handle>` | Add a JS or CSS asset to the enqueue system |
+| `/nectarblocks:audit-blocks` | Audit all blocks against conventions |
+| `/nectarblocks:audit-blocks-deep` | Deep AI audit — content quality, labels, admin render justification |
 
 ## Agent
 

@@ -59,11 +59,7 @@ pnpm dev
 
 ## 4. Add a new JS or CSS asset
 
-```
-/nectarblocks:enqueue my-library
-```
-
-Claude asks whether the asset should auto-load on every page or be registered on-demand for blocks to depend on, then adds the correct code to `inc/enqueue-assets.php`.
+Add `wp_enqueue_script()` or `wp_register_script()` calls manually to `inc/enqueue-assets.php`. Always use `filemtime()` as the version and load JS in the footer.
 
 ---
 
