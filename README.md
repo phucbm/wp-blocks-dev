@@ -1,6 +1,30 @@
 # Perxel Blocks
 
-A **[Claude Code](https://claude.ai/code) plugin** for building **custom** WordPress blocks alongside [NectarBlocks by ThemeNectar](https://nectarblocks.com) — scaffold, audit, and manage ACF-based Gutenberg blocks with a structured, production-ready workflow.
+A **[Claude Code](https://claude.ai/code) plugin** for scaffolding, auditing, and managing custom **ACF Gutenberg blocks
+** for WordPress — with Tailwind CSS integration and a structured, production-ready workflow. Tested
+with [NectarBlocks](https://nectarblocks.com).
+
+## Example use cases
+
+**Example 1: Starting a new WordPress project**
+Run `/perxel-blocks:init my-client-site` — the plugin asks for project name, theme slug, author, and which optional
+features (Tailwind, TypeScript) to include, then scaffolds the full theme structure.
+
+**Example 2: Adding a new block**
+Run `/perxel-blocks:create-block hero-banner` — generates `block.json`, `render.php`, `fields.json`, and registers the
+block in `blocks.json` automatically.
+
+**Example 3: Auditing before a handoff**
+Run `/perxel-blocks:audit-blocks` — instantly checks all blocks for missing files, invalid timestamps, unregistered
+folders, and render issues. No AI, runs in seconds.
+
+**Example 4: Deep content review**
+Run `/perxel-blocks:audit-blocks-deep` — AI reviews block labels, field quality, admin render justification, and content
+consistency across the project.
+
+**Example 5: Asking the agent**
+Talk to the `perxel-blocks-dev` agent when you're unsure about block structure, ACF field setup, PHP patterns, or
+Tailwind config — no need to provide context, it knows the workflow.
 
 ## Install
 

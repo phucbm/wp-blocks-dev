@@ -10,7 +10,8 @@
   "plugins": [
     {
       "name": "perxel-blocks",
-      "source": "./"
+      "source": "./",
+      "description": "Scaffold, audit and manage custom ACF Gutenberg blocks for WordPress with Tailwind CSS integration. Tested with NectarBlocks."
     }
   ]
 }
