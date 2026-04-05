@@ -35,7 +35,7 @@ Every block lives in `blocks/{block-name}/` and contains:
 
 **Early return:** if `render-admin.php` exists, `render.php` must bail early in the editor:
 ```php
-if(defined('REST_REQUEST') && REST_REQUEST && file_exists(__DIR__ . '/render-admin.php')){
+if(is_admin()){
     include __DIR__ . '/render-admin.php';
     return;
 }

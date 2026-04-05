@@ -7,7 +7,7 @@
  * it in blocks.json. Run from anywhere inside the theme directory.
  *
  * Usage:
- *   create-block <name> --title="Block Title" [--description="..."] [--js] [--admin]
+ *   node create-block.js <name> --title="Block Title" [--description="..."] [--js] [--admin]
  *
  * Options:
  *   --title        Human-readable block title (default: derived from name)
@@ -51,10 +51,10 @@ if(!/^[a-z0-9-]+$/.test(blockName)){
     process.exit(1);
 }
 
-const blockTitle   = flags.title       || blockName.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
-const blockDesc    = flags.description || '';
-const needsJs      = !!flags.js;
-const needsAdmin   = !!flags.admin;
+const blockTitle = flags.title       || blockName.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+const blockDesc  = flags.description || '';
+const needsJs    = !!flags.js;
+const needsAdmin = !!flags.admin;
 
 // ---------------------------------------------------------------------------
 // Find theme root (walk up from cwd until blocks.json is found)
@@ -72,7 +72,7 @@ function findThemeRoot(startDir){
 
 const themeRoot = findThemeRoot(process.cwd());
 if(!themeRoot){
-    console.error('Error: could not find blocks.json. Run this command from within your theme directory.');
+    console.error('Error: could not find blocks.json. Run from within your theme directory.');
     process.exit(1);
 }
 
@@ -123,9 +123,9 @@ fs.writeFileSync(
 
 const fieldsJson = [
     {
-        key:    `group_${blockName.replace(/-/g, '_')}`,
-        title:  blockTitle,
-        fields: [],
+        key:      `group_${blockName.replace(/-/g, '_')}`,
+        title:    blockTitle,
+        fields:   [],
         location: [[{ param: 'block', operator: '==', value: `acf/${blockName}` }]],
         modified: timestamp,
     },
@@ -142,7 +142,7 @@ fs.writeFileSync(
 
 const adminEarlyReturn = needsAdmin ? `
 // Bail early in editor — render-admin.php handles the preview
-if(defined('REST_REQUEST') && REST_REQUEST && file_exists(__DIR__ . '/render-admin.php')){
+if(is_admin()){
 \tinclude __DIR__ . '/render-admin.php';
 \treturn;
 }

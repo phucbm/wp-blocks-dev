@@ -3,7 +3,7 @@ name: create-block
 description: Scaffold a new ACF Gutenberg block with block.json, fields.json, and render.php
 ---
 
-Scaffold a new custom ACF block by running the create-block script from the plugin bin.
+Scaffold a new custom ACF block by running the create-block script from the plugin.
 
 ## Steps
 
@@ -22,7 +22,7 @@ Ask the user for:
 Run the create-block script from the plugin bin. Use `--js` and `--admin` only if requested:
 
 ```bash
-node scripts/create-block.js <name> --title="<title>" --description="<description>" [--js] [--admin]
+node $(claude plugin path nectarblocks)/scripts/create-block.js <name> --title="<title>" --description="<description>" [--js] [--admin]
 ```
 
 Run from the theme root. The script will:

@@ -67,7 +67,7 @@ This ensures WordPress can inject anchor IDs, additional classes, and other bloc
 If the block has a `render-admin.php`, bail early in the editor:
 
 ```php
-if(defined('REST_REQUEST') && REST_REQUEST && file_exists(__DIR__ . '/render-admin.php')){
+if(is_admin()){
     include __DIR__ . '/render-admin.php';
     return;
 }
