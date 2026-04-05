@@ -68,13 +68,17 @@ function auditBlock(blockName){
         }
     }
 
-    // Rule: fields.json only required if render.php uses get_field()
+    // Rule: fields.json required if any .php file in the block calls get_field() with 1 param
+    // get_field('key')           = 1 param = block-owned field = needs fields.json
+    // get_field('key', $anything) = 2 params = external field = no fields.json needed
     const renderPhpPath = path.join(blockDir, 'render.php');
     const fieldsJsonPath = path.join(blockDir, 'fields.json');
-    const usesAcfFields = fs.existsSync(renderPhpPath) &&
-        fs.readFileSync(renderPhpPath, 'utf8').includes('get_field(');
+    const phpFiles = fs.readdirSync(blockDir).filter(f => f.endsWith('.php'));
+    const usesAcfFields = phpFiles.some(f =>
+        /get_field\([^,)]+\)/.test(fs.readFileSync(path.join(blockDir, f), 'utf8'))
+    );
     if(usesAcfFields && !fs.existsSync(fieldsJsonPath)){
-        issues.push('missing fields.json — render.php uses get_field() but no fields.json found');
+        issues.push('missing fields.json — a block PHP file uses get_field() with 1 param but no fields.json found');
     }
 
     // Rule: preview.png (strongly recommended)
@@ -119,7 +123,7 @@ function auditBlock(blockName){
     if(fs.existsSync(renderPhpPath)){
         const renderContent = fs.readFileSync(renderPhpPath, 'utf8');
         if(!renderContent.includes('get_block_wrapper_attributes')){
-            issues.push('render.php: missing get_block_wrapper_attributes() on wrapper element');
+            warnings.push('render.php: missing get_block_wrapper_attributes() on wrapper element');
         }
 
         // Rule: if render-admin.php exists, render.php must have early return

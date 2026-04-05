@@ -32,6 +32,8 @@ For each block, read the following files and apply the checks below:
 - Do field labels make sense for what they describe?
 - Are there fields with default labels like "Text", "Image", "Field Label"?
 - Flag any field with an empty or placeholder label
+- Check for typos and grammar in labels, instructions, and descriptions — suggest the corrected text
+- Note: only label/instructions/description are safe to edit — never suggest changing `name` as it maps to saved database content
 
 **Wrapper attributes**
 - Every `render.php` must use `px_get_block_wrapper_attributes()` — never build wrapper classes/attributes manually
