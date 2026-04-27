@@ -75,7 +75,7 @@ Static layout blocks (text, images, grids) do not need `render-admin.php`.
 
 ### Required content
 
-Always show a visible placeholder:
+Always show a visible placeholder with `pointer-events:none` to prevent accidental interaction:
 
 ```php
 <div style="pointer-events:none; padding:2rem; background:#f0f0f0; text-align:center;">
@@ -83,13 +83,87 @@ Always show a visible placeholder:
 </div>
 ```
 
-`pointer-events:none` prevents accidental interaction in the editor.
+If the theme provides a wrapper helper (e.g. `px_get_block_wrapper_attributes()`), check whether it already injects `pointer-events:none` — if so, do **not** add it inline.
 
 ## view.entry.ts
 
 - Compiled to `view.js` by tsup (strips `.entry` from filename)
 - Scope selectors to the block wrapper class to avoid conflicts
 - Declare compiled `view.js` in `block.json` viewScript — do not enqueue manually
+
+## Reading ACF fields
+
+### Simple fields
+
+```php
+$heading     = get_field('heading');      // text / textarea → string
+$show_title  = get_field('show_title');   // true_false → bool (0|1)
+$video_url   = get_field('video_url');    // url / file (return_format: url) → string
+```
+
+### Image fields
+
+Set `return_format: "id"` in fields.json. The field returns an attachment ID.
+
+```php
+$image_id = get_field('image');           // int|null
+// Convert to <img> tag:
+echo wp_get_attachment_image($image_id, 'large');
+// Or with a theme helper if available:
+// echo px_get_image_tag($image_id, 600);
+```
+
+### Link fields
+
+Set `return_format: "array"` in fields.json. The field returns an associative array.
+
+```php
+$link   = get_field('cta_link');
+$url    = $link['url']    ?? '';
+$title  = $link['title']  ?? '';
+$target = !empty($link['target']) ? $link['target'] : '_self';
+```
+
+### Repeater fields
+
+`get_field()` returns an array of rows. Loop with `foreach`:
+
+```php
+$slides = get_field('slides') ?: [];
+
+foreach($slides as $index => $slide){
+    // Safe subfield access — use null-coalescing or a helper:
+    $title    = $slide['title']  ?? '';
+    $image_id = $slide['image']  ?? 0;
+}
+```
+
+Avoid `have_rows()` / `the_row()` unless iterating a deeply nested repeater; the array approach is simpler and more readable.
+
+### Subfield access pattern
+
+Prefer `?? ''` (or `?? 0` for IDs) over direct array access to avoid PHP notices when a row is missing a key:
+
+```php
+$title = $slide['title'] ?? '';
+$count = $data['count']  ?? 0;
+```
+
+If the theme provides `px_array_key_exists($key, $array, $default)`, use it — it handles null, false, and empty-string as the default.
+
+### Relationship fields
+
+Set `return_format: "object"` to get WP_Post objects:
+
+```php
+$members = get_field('team_members') ?: [];
+
+foreach($members as $member){
+    $id    = $member->ID;
+    $name  = get_the_title($id);
+    $field = get_field('custom_field', $id);  // 2nd param = post ID
+}
+```
 
 ## Block registration
 
