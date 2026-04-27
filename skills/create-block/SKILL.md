@@ -22,7 +22,7 @@ Ask the user for:
 Run the create-block script from the plugin bin. Use `--js` and `--admin` only if requested:
 
 ```bash
-node $(claude plugin path nectarblocks)/scripts/create-block.js <name> --title="<title>" --description="<description>" [--js] [--admin]
+node $(claude plugin path wp-blocks-dev)/scripts/create-block.js <name> --title="<title>" --description="<description>" [--js] [--admin]
 ```
 
 Run from the theme root. The script will:

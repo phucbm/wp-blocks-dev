@@ -3,7 +3,7 @@
 ## 1. Start a new project
 
 ```
-/nectarblocks:init my-project
+/wp-blocks-dev:init my-project
 ```
 
 Claude will ask for your project name, slug, and author, then scaffold the full theme structure. You choose which optional features to include (Tailwind, TypeScript, per-dev CSS).
@@ -22,7 +22,7 @@ Activate the theme in WordPress → Appearance → Themes.
 ## 2. Create a block
 
 ```
-/nectarblocks:create-block hero-banner
+/wp-blocks-dev:create-block hero-banner
 ```
 
 Claude asks for the block title, description, and whether it needs frontend JS or an admin preview. It creates all required files and registers the block in `blocks.json`.
@@ -66,7 +66,7 @@ Add `wp_enqueue_script()` or `wp_register_script()` calls manually to `inc/enque
 ## 5. Audit before committing
 
 ```
-/nectarblocks:audit
+/wp-blocks-dev:audit-blocks
 ```
 
 Checks all blocks against conventions — wrapper attributes, admin render rules, empty states, `block.json` completeness, `fields.json` modified timestamp. Fix any reported violations before pushing.

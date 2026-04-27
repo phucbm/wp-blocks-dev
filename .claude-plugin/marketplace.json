@@ -1,17 +1,17 @@
 {
-  "name": "perxel",
+  "name": "phucbm",
   "metadata": {
-    "description": "Claude plugins by Perxel."
+    "description": "Claude plugins by phucbm."
   },
   "owner": {
-    "name": "perxel",
-    "url": "https://github.com/perxel"
+    "name": "phucbm",
+    "url": "https://github.com/phucbm"
   },
   "plugins": [
     {
-      "name": "perxel-blocks",
+      "name": "wp-blocks-dev",
       "source": "./",
-      "description": "Scaffold, audit and manage custom ACF Gutenberg blocks for WordPress with Tailwind CSS integration. Tested with NectarBlocks."
+      "description": "Scaffold, audit and manage custom ACF Gutenberg blocks for WordPress with Tailwind CSS integration."
     }
   ]
 }

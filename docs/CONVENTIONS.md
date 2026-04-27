@@ -1,6 +1,6 @@
 # Block Conventions
 
-These conventions apply to every block in a nectarblocks project.
+These conventions apply to every block in a wp-blocks-dev project.
 
 ## File structure
 

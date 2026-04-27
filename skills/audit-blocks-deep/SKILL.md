@@ -8,7 +8,7 @@ Run a full Level 2 audit on all blocks. Runs the structural script first, then u
 ## Step 1 — Run the structural script
 
 ```bash
-node $(claude plugin path nectarblocks)/scripts/audit-blocks.js
+node $(claude plugin path wp-blocks-dev)/scripts/audit-blocks.js
 ```
 
 Show the output. If there are `✗` issues, tell the user to fix them before proceeding with the deep review. Warnings are fine to continue.

@@ -1,10 +1,10 @@
 # Privacy Policy
 
-**Perxel Blocks** is a [Claude Code](https://claude.ai/code) plugin developed by [Perxel](https://github.com/perxel).
+**WP Blocks Dev** is a [Claude Code](https://claude.ai/code) plugin developed by [phucbm](https://github.com/phucbm).
 
 ## Data collection
 
-This plugin does not collect, store, or transmit any personal data. It runs entirely on your local machine and does not communicate with any external servers operated by Perxel.
+This plugin does not collect, store, or transmit any personal data. It runs entirely on your local machine and does not communicate with any external servers.
 
 All operations — scaffolding, auditing, and managing ACF Gutenberg blocks — are performed locally within your Claude Code session.
 
@@ -14,4 +14,4 @@ This plugin operates within [Claude Code](https://claude.ai/code) by Anthropic. 
 
 ## Contact
 
-For questions, open an issue at [github.com/perxel/perxel-blocks](https://github.com/perxel/perxel-blocks/issues).
+For questions, open an issue at [github.com/phucbm/wp-blocks-dev](https://github.com/phucbm/wp-blocks-dev/issues).

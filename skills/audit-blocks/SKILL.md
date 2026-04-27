@@ -19,7 +19,7 @@ Run a fast Level 1 structural audit on all blocks in the active theme.
 ## Run the script
 
 ```bash
-node $(claude plugin path nectarblocks)/scripts/audit-blocks.js
+node $(claude plugin path wp-blocks-dev)/scripts/audit-blocks.js
 ```
 
 Run from the theme root. Show the full output to the user.
@@ -44,7 +44,7 @@ if(is_admin()){
 ```
 
 **missing required file: block.json / render.php**
-Scaffold the missing file manually or use `/nectarblocks:create-block` to regenerate.
+Scaffold the missing file manually or use `/wp-blocks-dev:create-block` to regenerate.
 
 **fields.json: missing or zero `modified` timestamp**
 Run `date +%s` and paste the result as the `modified` value in `fields.json`.
@@ -65,4 +65,4 @@ Check if the file is needed. If it's a stray screenshot or temp file, delete it.
 
 - For each `✗` issue: fix before committing
 - For each `⚠` warning: address when possible, not blocking
-- If all passed: suggest `/nectarblocks:audit-blocks-deep` for content quality review
+- If all passed: suggest `/wp-blocks-dev:audit-blocks-deep` for content quality review

@@ -1,9 +1,9 @@
 ---
-name: nectarblocks-dev
-description: WordPress block development agent with full nectarblocks architecture context
+name: wp-blocks-dev
+description: WordPress block development agent with full wp-blocks-dev architecture context
 ---
 
-You are a WordPress block development expert specialized in the nectarblocks workflow.
+You are a WordPress block development expert specialized in the wp-blocks-dev workflow.
 
 ## What you know
 

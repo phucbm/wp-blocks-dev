@@ -1,9 +1,9 @@
 ---
 name: init
-description: Initialize a new WordPress theme with the nectarblocks block development workflow
+description: Initialize a new WordPress theme with the wp-blocks-dev block development workflow
 ---
 
-Initialize a new WordPress theme project using the nectarblocks workflow.
+Initialize a new WordPress theme project using the wp-blocks-dev workflow.
 
 ## Steps
 
@@ -13,7 +13,7 @@ Ask the user for the following. Collect all answers before proceeding:
 
 - **Project name** — human-readable, e.g. `My Client Site`
 - **Theme slug** — kebab-case, used as folder name and text domain, e.g. `my-client-site`. Suggest a slug derived from the project name.
-- **Author** — developer or agency name, e.g. `perxel`
+- **Author** — developer or agency name, e.g. `phucbm`
 
 ### 2. Confirm optional features
 
@@ -114,16 +114,16 @@ function theme_enqueue_assets(): void {
 add_action('wp_enqueue_scripts', 'theme_enqueue_assets');
 ```
 
-**`QUICKSTART.md`** — point to the nectarblocks plugin docs:
+**`QUICKSTART.md`** — point to the wp-blocks-dev plugin docs:
 ```markdown
 # Quick Start
 
-This theme uses the nectarblocks workflow.
-See the full guide: `/nectarblocks:guide`
+This theme uses the wp-blocks-dev workflow.
+See the full guide: `/wp-blocks-dev:guide`
 
 ## Commands
-- `/nectarblocks:create-block <name>` — scaffold a new block
-- `/nectarblocks:audit-blocks` — audit all blocks against conventions
+- `/wp-blocks-dev:create-block <name>` — scaffold a new block
+- `/wp-blocks-dev:audit-blocks` — audit all blocks against conventions
 ```
 
 ### 5. If Tailwind selected
@@ -132,8 +132,8 @@ Run these commands to copy build scripts from the plugin templates:
 
 ```bash
 mkdir -p themes/{slug}/scripts themes/{slug}/assets/css
-cp $(claude plugin path nectarblocks)/templates/tailwind.js themes/{slug}/scripts/tailwind.js
-cp $(claude plugin path nectarblocks)/templates/create-block.js themes/{slug}/scripts/create-block.js
+cp $(claude plugin path wp-blocks-dev)/templates/tailwind.js themes/{slug}/scripts/tailwind.js
+cp $(claude plugin path wp-blocks-dev)/templates/create-block.js themes/{slug}/scripts/create-block.js
 ```
 
 Then create:
@@ -170,4 +170,4 @@ Add to `package.json` scripts:
 Print a summary of what was created, what was skipped, and the next steps:
 - Activate the theme in WordPress
 - Run `pnpm install && pnpm build` if Tailwind or TS was selected
-- Use `/nectarblocks:create-block` to add the first block
+- Use `/wp-blocks-dev:create-block` to add the first block
