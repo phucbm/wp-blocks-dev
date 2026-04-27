@@ -52,6 +52,18 @@ claude plugin update wp-blocks-dev@phucbm
 
 ---
 
+## Required mu-plugins
+
+Install all three from [phucbm/wp-mu-plugins](https://github.com/phucbm/wp-mu-plugins) into your `mu-plugins/` directory:
+
+| File | Purpose |
+|---|---|
+| [`acf-local-json-router.php`](https://github.com/phucbm/wp-mu-plugins/blob/main/acf-local-json-router.php) | Routes ACF JSON saves per-block to `blocks/{slug}/fields.json` |
+| [`wp-blocks-loader.php`](https://github.com/phucbm/wp-mu-plugins/blob/main/wp-blocks-loader.php) | Registers blocks from `blocks.json`, adds block category, fixes WP 6.3+ script defer |
+| [`tailwind-theme-loader.php`](https://github.com/phucbm/wp-mu-plugins/blob/main/tailwind-theme-loader.php) | Enqueues Tailwind CSS on frontend and in the block editor |
+
+---
+
 ## Requirements
 
 - WordPress 6.0+

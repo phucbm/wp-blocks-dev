@@ -170,7 +170,7 @@ foreach($members as $member){
 Blocks are registered by adding the slug to `blocks.json` at the theme root:
 
 ```json
-["about", "hero", "services"]
+{ "blocks": ["about", "hero", "services"] }
 ```
 
-Keep the list in alphabetical order. `inc/register-blocks.php` reads this and calls `register_block_type()` for each entry.
+Keep the list in alphabetical order. The `wp-blocks-loader.php` mu-plugin reads this and calls `register_block_type()` for each entry.
