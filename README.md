@@ -11,14 +11,6 @@ claude plugin marketplace add phucbm/wp-blocks-dev
 claude plugin install wp-blocks-dev@phucbm --scope project
 ```
 
-**Local install:**
-
-```bash
-git clone https://github.com/phucbm/wp-blocks-dev.git
-claude plugin marketplace add /your/path/to/wp-blocks-dev
-claude plugin install wp-blocks-dev@phucbm --scope project
-```
-
 ## Update
 
 ```bash
