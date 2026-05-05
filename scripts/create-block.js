@@ -107,6 +107,12 @@ const blockJson = {
         mode:           'preview',
         renderTemplate: 'render.php',
     },
+    attributes: {
+        previewImage: {
+            type:    'string',
+            default: 'preview.png',
+        },
+    },
     supports: { anchor: true },
 };
 

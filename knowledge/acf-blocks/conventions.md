@@ -8,6 +8,7 @@ blocks/{block-name}/
 ├── fields.json         Required if any PHP uses get_field() with 1 param
 ├── render.php          Required — frontend PHP template
 ├── render-admin.php    Optional — editor preview (interactive blocks only)
+├── preview.png         Optional — thumbnail shown in block inserter
 └── view.entry.ts       Optional — frontend JS, compiled to view.js by tsup
 ```
 
@@ -28,6 +29,12 @@ Minimum required fields:
     "mode": "preview",
     "renderTemplate": "render.php"
   },
+  "attributes": {
+    "previewImage": {
+      "type": "string",
+      "default": "preview.png"
+    }
+  },
   "supports": { "anchor": true }
 }
 ```
@@ -35,6 +42,29 @@ Minimum required fields:
 - `title` and `description` must never be empty or placeholder values
 - If the block has frontend JS: add `"viewScript": ["file:./view.js"]`
 - If the block depends on a registered library: `"viewScript": ["library-handle", "file:./view.js"]`
+
+## preview.png — inserter thumbnail
+
+Place `preview.png` at block root. Gutenberg shows it in the block inserter when block has no content yet.
+
+Requires two things:
+1. **`preview.png` file** at `blocks/{block-name}/preview.png`
+2. **`attributes.previewImage` in `block.json`** (see above) — tells Gutenberg which filename to look for
+
+This is standard Gutenberg behavior. No custom code needed.
+
+### Quick inserter preview (optional)
+
+Gutenberg's native `previewImage` only works in the **full inserter sidebar**. It does NOT work in the **quick inserter** (slash commands `/hero`, `+` button).
+
+To bridge this gap, copy [`ref/inserter-preview.js`](ref/inserter-preview.js) to `assets/js/inserter-preview.js` and update the `NAMESPACE` constant to match your block prefix (e.g. `acf`, `clientName`).
+
+Enqueue it conditionally in `functions.php`:
+```php
+add_action('enqueue_block_editor_assets', function(){
+    wp_enqueue_script('inserter-preview', get_template_directory_uri() . '/assets/js/inserter-preview.js', [], filemtime(get_template_directory() . '/assets/js/inserter-preview.js'), true);
+});
+```
 
 ## render.php
 
