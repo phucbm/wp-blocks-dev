@@ -3,7 +3,7 @@ name: init
 description: Initialize a new WordPress theme with the wp-blocks-dev block development workflow
 ---
 
-Read `${CLAUDE_SKILL_DIR}/../../knowledge/acf-blocks/conventions.md`, `${CLAUDE_SKILL_DIR}/../../knowledge/tailwind/build-pipeline.md`, and `${CLAUDE_SKILL_DIR}/../../knowledge/typescript/tsup-setup.md`, then:
+Read `[@/knowledge/acf-blocks/conventions.md](/knowledge/acf-blocks/conventions.md)`, `[@/knowledge/tailwind/build-pipeline.md](/knowledge/tailwind/build-pipeline.md)`, and `[@/knowledge/typescript/tsup-setup.md](/knowledge/typescript/tsup-setup.md)`, then:
 
 ## 1. Collect project info
 

@@ -57,7 +57,7 @@ This is standard Gutenberg behavior. No custom code needed.
 
 Gutenberg's native `previewImage` only works in the **full inserter sidebar**. It does NOT work in the **quick inserter** (slash commands `/hero`, `+` button).
 
-To bridge this gap, copy [`@ref/inserter-preview.js`](/ref/inserter-preview.js) to `assets/js/inserter-preview.js` and update the `NAMESPACE` constant to match your block prefix (e.g. `acf`, `clientName`).
+To bridge this gap, copy `[@ref/inserter-preview.js](ref/inserter-preview.js)` to `assets/js/inserter-preview.js` and update the `NAMESPACE` constant to match your block prefix (e.g. `acf`, `clientName`).
 
 Enqueue it conditionally in `functions.php`:
 ```php

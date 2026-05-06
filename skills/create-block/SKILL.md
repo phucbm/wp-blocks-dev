@@ -3,7 +3,7 @@ name: create-block
 description: Scaffold a new ACF Gutenberg block with block.json, fields.json, and render.php
 ---
 
-Read `${CLAUDE_SKILL_DIR}/../../knowledge/acf-blocks/conventions.md` and `${CLAUDE_SKILL_DIR}/../../knowledge/acf-blocks/fields.md`, then:
+Read `[@/knowledge/acf-blocks/conventions.md](/knowledge/acf-blocks/conventions.md) and [@/knowledge/acf-blocks/fields.md](/knowledge/acf-blocks/fields.md)`, then:
 
 1. Ask the user for:
    - **Block name** — kebab-case slug, e.g. `hero-banner`

@@ -3,7 +3,7 @@ name: audit-blocks
 description: Fast structural audit of all blocks — checks required files, wrapper attributes, fields.json timestamp, preview.png. No AI, runs instantly via script.
 ---
 
-Read `${CLAUDE_SKILL_DIR}/../../knowledge/acf-blocks/conventions.md` and `${CLAUDE_SKILL_DIR}/../../knowledge/acf-blocks/fields.md`, then:
+Read `[@/knowledge/acf-blocks/conventions.md](/knowledge/acf-blocks/conventions.md) and [@/knowledge/acf-blocks/fields.md](/knowledge/acf-blocks/fields.md)`, then:
 
 1. Run the audit script from the theme root:
    ```bash
